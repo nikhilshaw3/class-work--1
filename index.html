@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Image Tracking AR</title>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+
+  <!-- iOS has a lot of restrictions on playing videos in the browser. 
+  To play an inline video texture, we must set the meta tag. 
+  A-Frame will inject this if missing.-->
+  
+  
+
+  <!-- import aframe and then ar.js with image tracking / location based features -->
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  
+  <script src="./play-on-click.js"></script>
+
+  
+  <!-- style for the loader -->
+  
+
+</head>
+
+<body style="margin : 0px; overflow: hidden;">
+<div class="arjs-loader">
+  <div>Loading... Please Wait</div>
+</div>
+
+<a-scene vr-mode-ui = "enabled:false" renderer="logarithmicDepthBuffer:true" embeded arjs="trackingMethod:best;sourceType:webcam;debugUIEnabled:false">
+  <a-entity id="camera" camera position="0 0 10"></a-entity>
+  <a-assets>
+    <video id="video1" src="./assets/videos/Rocket_Launching_Animation.mp4" preload="auto" loop="true" playsinline webkit-playsinline autoplay crossorigin="anonymous"></video>
+  </a-assets>
+  <a-nft id="nft1" type="nft" url=".assets/rocket_img" smooth="true" smoothCount="10" smoothTolerance="0.1" smoothThreshold="5">
+  <a-video id="vid1" src="#video1" width="600" height="509" position="0 0 -30" rotation="-90 0 0" play-on-click></a-video>
+</a-nft>
+</a-scene>
+
+</body>
+</html>
